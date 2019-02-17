@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.4
+    working_directory: ~/snipetto_service
+    steps:
+      - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - run:
+          name: CI Dependency install
+          command: pip3 install -r requirements/ci.txt
+      - run:
+          name: Pep8 check
+          command: flake8 .
+      - run:
+          name: Isort check
+          command: isort -rc --check-only --diff .
+      - run:
+          name: Bandit
+          command: bandit -r .
+      - run:
+          name: APP Dependency install
+          command: pip3 install -r requirements/app.txt
+      - run:
+          name: Run django tests
+          command: coverage run manage.py test
+      - run:
+          name: Coverage report display
+          command: coverage report -m

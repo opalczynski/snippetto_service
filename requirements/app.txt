@@ -1,0 +1,4 @@
+uwsgi==2.0.18
+django==2.1.7
+djangorestframework==3.9.1
+django-filter==2.1.0

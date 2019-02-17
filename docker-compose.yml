@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  snipetto-api:
+    build:
+      context: .
+      target: "application"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app/
+    environment:
+      - ENVIRONMENT=development
+      - DJANGO_SETTINGS_MODULE=settings.development
