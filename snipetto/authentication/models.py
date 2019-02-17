@@ -10,7 +10,7 @@ def get_token():
 
 
 class UserToken(models.Model):
-    """It is dumb simple long living token model - we do not care 
+    """It is dumb simple long living token model - we do not care
     much about security now;"""""
 
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
