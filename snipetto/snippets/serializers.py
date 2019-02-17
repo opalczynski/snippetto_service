@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
+
 from rest_framework import serializers
 
 from snipetto.core.serializers import AuthorSerializerMixin
-from snipetto.snippets.models import Tag, Snippet
+from snipetto.snippets.models import Snippet, Tag
 
 
 class TagSerializer(serializers.ModelSerializer):

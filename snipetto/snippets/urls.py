@@ -1,6 +1,6 @@
 from rest_framework.routers import SimpleRouter
 
-from snipetto.snippets.views import TagViewSet, SnippetViewSet
+from snipetto.snippets.views import SnippetViewSet, TagViewSet
 
 router = SimpleRouter()
 router.register('tags', TagViewSet, base_name='tags')
