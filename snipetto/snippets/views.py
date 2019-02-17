@@ -1,7 +1,7 @@
-from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, viewsets
 from rest_framework.viewsets import GenericViewSet
 
+from django_filters.rest_framework import DjangoFilterBackend
 from snipetto.snippets.filters import SnippetFilter
 from snipetto.snippets.models import Snippet, Tag
 from snipetto.snippets.serializers import SnippetSerializer, TagSerializer
