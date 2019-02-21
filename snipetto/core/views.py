@@ -15,7 +15,7 @@ class UrlsMappingAPIView(APIView):
                 'detail': reverse('v1:tags-detail')
             },
             'auth': {
-                'login': ''
+                'init': reverse('v1:user-init')
             }
         }
         return Response(url_mapping)

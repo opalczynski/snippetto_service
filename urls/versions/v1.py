@@ -4,4 +4,5 @@ app_name = 'app'
 
 urlpatterns = [
     path('snippets/', include('snipetto.snippets.urls')),
+    path('auth/', include('snipetto.authentication.urls')),
 ]
