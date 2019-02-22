@@ -70,3 +70,14 @@ class SnippetSerializer(AuthorSerializerMixin, serializers.ModelSerializer):
         snippet = super().create(validated_data)
         snippet.tags.add(*tags_instances)
         return snippet
+
+    def update(self, instance, validated_data):
+        tags = validated_data.pop('tags')
+        tags_instances = []
+        for tag in tags:
+            tag_instance = Tag.objects.get_or_create(name=tag['name'])
+            tags_instances.append(tag_instance[0])
+        snippet = super().update(instance, validated_data)
+        snippet.tags.clear()
+        snippet.tags.add(*tags_instances)
+        return snippet

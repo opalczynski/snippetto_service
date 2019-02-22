@@ -5,14 +5,16 @@ from rest_framework.views import APIView
 
 
 class UrlsMappingAPIView(APIView):
-    def get(self, request):
+    authentication_classes = ()
+    permission_classes = ()
+
+    def get(self, request, *args, **kwargs):
         url_mapping = {
             'tags': {
                 'list': reverse('v1:tags-list'),
             },
             'snippets': {
-                'list': reverse('v1:tags-list'),
-                'detail': reverse('v1:tags-detail')
+                'list': reverse('v1:snippets-list'),
             },
             'auth': {
                 'init': reverse('v1:user-init')
