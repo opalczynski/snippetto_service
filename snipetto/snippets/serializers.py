@@ -20,11 +20,11 @@ class TagSerializer(serializers.ModelSerializer):
             'id',
             'created_at',
             'updated_at',
-            'name'  # we will not allow to edit tag created once;
+            'name'  # we will not allow to edit or delete tag created once;
         )
 
 
-class GetOrCreateTagSerializer(serializers.Serializer):
+class SnippetTagSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=64)
 
 
@@ -40,7 +40,7 @@ class ShortUserSerializer(serializers.ModelSerializer):
 
 
 class SnippetSerializer(AuthorSerializerMixin, serializers.ModelSerializer):
-    tags = GetOrCreateTagSerializer(many=True)
+    tags = SnippetTagSerializer(many=True)
     author = ShortUserSerializer(read_only=True)
 
     class Meta:

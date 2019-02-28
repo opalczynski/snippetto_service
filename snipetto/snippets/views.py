@@ -9,7 +9,6 @@ from snipetto.snippets.serializers import SnippetSerializer, TagSerializer
 
 class TagViewSet(mixins.CreateModelMixin,
                  mixins.RetrieveModelMixin,
-                 mixins.DestroyModelMixin,
                  mixins.ListModelMixin,
                  GenericViewSet):
     queryset = Tag.objects.all()
