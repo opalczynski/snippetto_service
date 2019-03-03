@@ -6,7 +6,7 @@ Simple service for storing code snippets.
 
 | Build  | Status  | 
 |---|---|
-| CircleCI  | [![CircleCI](https://circleci.com/gh/opalczynski/snipetto_service/tree/master.svg?style=svg)](https://circleci.com/gh/opalczynski/snipetto_service/tree/master) |
+| CircleCI  | [![CircleCI](https://circleci.com/gh/opalczynski/snippetto_service/tree/master.svg?style=svg)](https://circleci.com/gh/opalczynski/snipetto_service/tree/master) |
 
 
 
