@@ -27,4 +27,9 @@ RUN python manage.py collectstatic --no-input
 CMD ["sh", "-c", "uwsgi --ini uwsgi.ini:${ENVIRONMENT}"]
 
 FROM application as ci
+EXPOSE 8000
 RUN pip install -r requirements/ci.txt --no-cache-dir
+RUN python manage.py migrate
+RUN python manage.py create_test_user
+ENV ENVIRONMENT development
+ENV DJANGO_SETTINGS_MODULE settings.development
