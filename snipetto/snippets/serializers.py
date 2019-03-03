@@ -73,7 +73,9 @@ class SnippetSerializer(AuthorSerializerMixin, serializers.ModelSerializer):
         return snippet
 
     def update(self, instance, validated_data):
-        tags = validated_data.pop('tags')
+        tags = validated_data.pop('tags', None)
+        if not tags:
+            return super().update(instance, validated_data)
         tags_instances = []
         for tag in tags:
             tag_instance = Tag.objects.get_or_create(name=tag['name'])
