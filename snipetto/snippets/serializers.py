@@ -35,13 +35,13 @@ class ShortUserSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
-            'email',
         )
 
 
 class SnippetSerializer(AuthorSerializerMixin, serializers.ModelSerializer):
     tags = SnippetTagSerializer(many=True)
     author = ShortUserSerializer(read_only=True)
+    snippet = serializers.CharField(trim_whitespace=False)
 
     class Meta:
         model = Snippet
@@ -52,7 +52,8 @@ class SnippetSerializer(AuthorSerializerMixin, serializers.ModelSerializer):
             'tags',
             'slug',
             'snippet',
-            'author'
+            'author',
+            'description'
         )
         read_only_fields = (
             'id',

@@ -66,6 +66,7 @@ class SnippetViewSetTestCase(SnipettoTestCase):
                 # note here: on edit we exchange tag - remove old, add new
                 'tags': [{'name': 'yetanothertag'}],
                 'snippet': 'def somefunc()',
+                'description': 'some desc',
             },
             **self.get_credentials()
         )

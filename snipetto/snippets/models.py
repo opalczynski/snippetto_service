@@ -10,6 +10,7 @@ class Tag(TimestampAbstractModel):
 
 class Snippet(TimestampAbstractModel):
     slug = models.SlugField(max_length=128, unique=True)
+    description = models.CharField(max_length=2048, null=True, blank=True)
     tags = models.ManyToManyField(to=Tag)
     snippet = models.TextField()
     author = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING)
