@@ -1,3 +1,7 @@
+# Archived and abaddoned
+
+But you can still review the codebase if needed.
+
 # Snipetto service 
 
 Simple service for storing code snippets.
